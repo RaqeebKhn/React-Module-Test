@@ -1,8 +1,13 @@
+import MainPage from './components/MainPage/MainPage'
+import CreateNoteButton from './components/CreateNoteButton/CreateNoteButton'
 import './App.css'
 
 function App() {
   return (
-    <h1>Hello World</h1>
+    <>
+      <MainPage />
+      <CreateNoteButton />
+    </>
   )
     
   }
