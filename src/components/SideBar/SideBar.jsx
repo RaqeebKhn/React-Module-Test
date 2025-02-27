@@ -2,13 +2,14 @@ import { useState, forwardRef, useImperativeHandle } from 'react'
 import NoteGroup from '../NoteGroup/NoteGroup'
 import './Sidebar.css'
 
-const Sidebar = forwardRef((props, ref) => { 
+const Sidebar = forwardRef(({ onSelectGroup }, ref) => { 
   const [selectedGroup, setSelectedGroup] = useState(null)
   const [noteGroups, setNoteGroups] = useState([])
 
   const handleCreateGroup = (newGroup) => {
     const newId = noteGroups.length + 1
-    setNoteGroups([...noteGroups, { ...newGroup, id: newId }])
+    const newGroupWithId = { ...newGroup, id: newId }  
+    setNoteGroups([...noteGroups, newGroupWithId])
   }
 
   useImperativeHandle(ref, () => ({ 
@@ -27,7 +28,10 @@ const Sidebar = forwardRef((props, ref) => {
             title={group.title}
             color={group.color}
             selected={selectedGroup === group.id}       
-            onClick={() => setSelectedGroup(group.id)}
+            onClick={() => {                          
+              setSelectedGroup(group.id)    
+              onSelectGroup(group)           
+            }}  
           />
         ))}
       </div>
