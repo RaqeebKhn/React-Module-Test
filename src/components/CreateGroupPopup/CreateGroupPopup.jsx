@@ -31,7 +31,15 @@ const CreateGroupPopup = ({ onClose, onCreateGroup }) => {
     e.preventDefault() 
     setError('')
 
-    if (groupName.trim()) { 
+    if (!groupName.trim()) {  
+      setError('Group name is required')  
+      return  
+    }  
+
+    if (groupName.trim().length < 2) {  
+      setError('Group name must be at least 2 characters')  
+      return  
+    }  
       const success = onCreateGroup({ 
         title: groupName, 
         color: selectedColor 
@@ -79,6 +87,6 @@ const CreateGroupPopup = ({ onClose, onCreateGroup }) => {
       </div> 
     </div> 
   ) 
-} 
+ 
 
 export default CreateGroupPopup 
