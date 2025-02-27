@@ -1,6 +1,6 @@
 import './NoteGroup.css'
 
-const NoteGroup = ({ title, color, selected }) => {
+const NoteGroup = ({ title, color, selected, onClick }) => {
   const getInitials = (title) => {
     return title
       .split(' ')
@@ -11,7 +11,11 @@ const NoteGroup = ({ title, color, selected }) => {
   }
 
   return (
-    <div className={`note-group ${selected ? 'selected' : ''}`}>
+    <div  className={`note-group ${selected ? 'selected' : ''}`}  
+    onClick={onClick}     
+    role="button"         
+    tabIndex={0}          
+     >
       <div className="note-icon" style={{ backgroundColor: color }}>
         {getInitials(title)}
       </div>

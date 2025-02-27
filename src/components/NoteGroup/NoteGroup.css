@@ -10,6 +10,19 @@
     background-color: rgba(0, 0, 0, 0.05);
   }
   
+  .note-group:focus {
+    outline: none;
+    background-color: var(--hover-bg);
+  }
+  
+  .note-group.selected {
+    background-color: var(--selected-bg);
+  }
+  
+  .note-group.selected:hover {
+    background-color: var(--selected-bg);
+  }
+
   .note-group.selected {
     background-color: rgba(0, 0, 0, 0.08);
   }
