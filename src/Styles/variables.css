@@ -3,6 +3,10 @@
     --background-color: #DAE5F5;
     --text-color: #000000;
     --white: #FFFFFF;
+    --sidebar-width: 350px;
+    --border-color: #E8E8E8;
+    --hover-bg: rgba(0, 0, 0, 0.05);
+    --selected-bg: rgba(0, 0, 0, 0.08);
   }
   
   * {

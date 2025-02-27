@@ -1,0 +1,24 @@
+.sidebar {
+    width: 350px;
+    height: 100vh;
+    background-color: white;
+    border-right: 1px solid #E8E8E8;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-header {
+    padding: 30px 20px;
+    border-bottom: 1px solid #E8E8E8;
+  }
+  
+  .sidebar-header h1 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #000000;
+  }
+  
+  .notes-list {
+    flex: 1;
+    overflow-y: auto;
+  }
