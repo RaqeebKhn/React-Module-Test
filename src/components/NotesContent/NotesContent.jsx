@@ -27,6 +27,13 @@ const NotesContent = ({ group }) => {
     }
   }
 
+   const handleKeyPress = (e) => { 
+    if (e.key === 'Enter' && !e.shiftKey) {  
+      e.preventDefault()  
+      handleSubmit(e)  
+    }  
+  }  
+
   return (
     <div className="notes-content">
       <div className="notes-header">
