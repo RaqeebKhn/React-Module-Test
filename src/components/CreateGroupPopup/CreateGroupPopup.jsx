@@ -4,6 +4,7 @@ import './CreateGroupPopup.css'
 const CreateGroupPopup = ({ onClose, onCreateGroup }) => { 
   const [groupName, setGroupName] = useState('') 
   const [selectedColor, setSelectedColor] = useState('#B38BFA') 
+  const [error, setError] = useState('')
   const popupRef = useRef(null) 
 
   const colors = [ 
@@ -28,12 +29,18 @@ const CreateGroupPopup = ({ onClose, onCreateGroup }) => {
 
   const handleSubmit = (e) => { 
     e.preventDefault() 
+    setError('')
+
     if (groupName.trim()) { 
-      onCreateGroup({ 
+      const success = onCreateGroup({ 
         title: groupName, 
         color: selectedColor 
       }) 
-      onClose() 
+      if (success) { 
+        onClose()
+      } else { 
+        setError('A group with this name already exists') 
+      } 
     } 
   } 
 
@@ -52,6 +59,7 @@ const CreateGroupPopup = ({ onClose, onCreateGroup }) => {
               onChange={(e) => setGroupName(e.target.value)} 
               maxLength={20} 
             /> 
+            {error && <p className="error-message">{error}</p>}
           </div> 
           <div className="color-selector"> 
             <label>Choose colour</label> 

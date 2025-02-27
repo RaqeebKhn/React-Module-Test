@@ -6,10 +6,19 @@ const Sidebar = forwardRef(({ onSelectGroup }, ref) => {
   const [selectedGroup, setSelectedGroup] = useState(null)
   const [noteGroups, setNoteGroups] = useState([])
 
-  const handleCreateGroup = (newGroup) => {
+  const handleCreateGroup = (newGroup) => {  
+    const isDuplicate = noteGroups.some(
+      group => group.title.toLowerCase() === newGroup.title.toLowerCase()
+    )
+    
+    if (isDuplicate) {
+      return false 
+    }
+
     const newId = noteGroups.length + 1
-    const newGroupWithId = { ...newGroup, id: newId }  
+    const newGroupWithId = { ...newGroup, id: newId }
     setNoteGroups([...noteGroups, newGroupWithId])
+    return true 
   }
 
   useImperativeHandle(ref, () => ({ 

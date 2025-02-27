@@ -82,3 +82,9 @@
   .create-btn:hover { 
     opacity: 0.9; 
   } 
+
+  .error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+  }
