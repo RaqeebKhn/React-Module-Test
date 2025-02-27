@@ -4,12 +4,15 @@ import Sidebar from './components/SideBar/SideBar'
 import './App.css'
 
 function App() {
+  const handleCreateGroup = (newGroup) => { 
+    
+  } 
   return (
     <div className="app-container">
       <Sidebar />
       <main className="main-content">
         <MainPage />
-        <CreateNoteButton />
+        <CreateNoteButton onCreateGroup={handleCreateGroup} />
       </main>
     </div>
   )

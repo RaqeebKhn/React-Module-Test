@@ -4,7 +4,7 @@ import './Sidebar.css'
 
 const Sidebar = () => {
   const [selectedGroup, setSelectedGroup] = useState(null)
-  const [noteGroups] = useState([
+  const [noteGroups, setNoteGroups] = useState([
     { id: 1, title: 'My Notes', color: '#0047FF' },
     { id: 2, title: 'My personal grp', color: '#B38BFA' },
     { id: 3, title: 'Javascript grp', color: '#FF79F2' },
@@ -19,6 +19,11 @@ const Sidebar = () => {
     { id: 12, title: 'Python Notes', color: '#FF4ECD' },
     { id: 13, title: 'Python Notes', color: '#FF4ECD' }
   ])
+
+  const handleCreateGroup = (newGroup) => { 
+    const newId = noteGroups.length + 1 
+    setNoteGroups([...noteGroups, { ...newGroup, id: newId }]) 
+  } 
 
   return (
     <div className="sidebar">
