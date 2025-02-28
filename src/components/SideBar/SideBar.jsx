@@ -1,7 +1,7 @@
 import { useState, forwardRef, useImperativeHandle, useEffect } from 'react'
 import NoteGroup from '../NoteGroup/NoteGroup'
 import CreateNoteButton from '../CreateNoteButton/CreateNoteButton'
-import './Sidebar.css'
+import './SideBar.css'
 
 const Sidebar = forwardRef(({ onSelectGroup, onCreateGroup, showCreateButton }, ref) => {  
   const [selectedGroup, setSelectedGroup] = useState(null)
