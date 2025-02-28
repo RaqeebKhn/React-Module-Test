@@ -50,7 +50,7 @@ const CreateGroupPopup = ({ onClose, onCreateGroup }) => {
         setError('A group with this name already exists') 
       } 
     } 
-  } 
+  
 
   return ( 
     <div className="popup-overlay"> 
@@ -87,6 +87,6 @@ const CreateGroupPopup = ({ onClose, onCreateGroup }) => {
       </div> 
     </div> 
   ) 
- 
+} 
 
 export default CreateGroupPopup 

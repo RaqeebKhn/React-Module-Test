@@ -22,9 +22,12 @@ function App() {
         {selectedGroup ? ( 
           <NotesContent group={selectedGroup} /> 
         ) : (
+          <>
           <MainPage />
+          <CreateNoteButton onCreateGroup={handleCreateGroup} />
+          </>
         )}
-        <CreateNoteButton onCreateGroup={handleCreateGroup} />
+        
       </main>
     </div>
   )
