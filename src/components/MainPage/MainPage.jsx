@@ -11,10 +11,12 @@ const MainPage = () => {
           <br />
           Use Pocket Notes on up to 4 linked devices and 1 mobile phone
         </p>
+        <div className="footer">                                           
         <div className="encryption-banner">
           <span className="lock-icon">🔒</span>
           <span>end-to-end encrypted</span>
         </div>
+      </div>
       </div>
     </div>
   )

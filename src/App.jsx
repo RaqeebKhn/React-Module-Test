@@ -17,6 +17,8 @@ function App() {
        <Sidebar 
        ref={sidebarRef} 
        onSelectGroup={setSelectedGroup}
+       onCreateGroup={handleCreateGroup}                              
+         showCreateButton={selectedGroup !== null}
        />
       <main className="main-content">
         {selectedGroup ? ( 

@@ -1,8 +1,9 @@
 import { useState, forwardRef, useImperativeHandle, useEffect } from 'react'
 import NoteGroup from '../NoteGroup/NoteGroup'
+import CreateNoteButton from '../CreateNoteButton/CreateNoteButton'
 import './Sidebar.css'
 
-const Sidebar = forwardRef(({ onSelectGroup }, ref) => { 
+const Sidebar = forwardRef(({ onSelectGroup, onCreateGroup, showCreateButton }, ref) => {  
   const [selectedGroup, setSelectedGroup] = useState(null)
   const [noteGroups, setNoteGroups] = useState(() => {                    
     const savedGroups = localStorage.getItem('noteGroups')                
@@ -51,6 +52,9 @@ const Sidebar = forwardRef(({ onSelectGroup }, ref) => {
           />
         ))}
       </div>
+      {showCreateButton && (                                                    
+        <CreateNoteButton onCreateGroup={onCreateGroup} />                     
+      )} 
     </div>
   )
 })
