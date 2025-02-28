@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './NotesContent.css'
 
-const NotesContent = ({ group }) => {  
+const NotesContent = ({ group, onBack, isMobileView }) => {  
     const [notes, setNotes] = useState(() => {                           
         const savedNotes = localStorage.getItem(`notes_${group.id}`)         
         return savedNotes ? JSON.parse(savedNotes) : []                      
@@ -44,6 +44,11 @@ const NotesContent = ({ group }) => {
   return (
     <div className="notes-content">
       <div className="notes-header">
+      {isMobileView && (                                               
+          <button className="back-button" onClick={onBack}>
+            ←
+          </button>
+        )}  
         <div className="group-icon" style={{ backgroundColor: group.color }}>
           {group.title.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2)}
         </div>

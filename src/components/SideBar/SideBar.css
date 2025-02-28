@@ -7,6 +7,17 @@
     flex-direction: column;
     position: relative;
   }
+
+  @media (max-width: 768px) {                             
+    .sidebar {
+        width: 100%;
+        display: flex;
+    }
+
+    .sidebar.hidden {
+        display: none;
+    }
+}
   
   .sidebar-header {
     padding: 30px 20px;

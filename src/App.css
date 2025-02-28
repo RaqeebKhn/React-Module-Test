@@ -9,3 +9,18 @@
     position: relative;
     background-color: var(--background-color);
   }
+
+  @media (max-width: 768px) {                               
+    .app-container {
+        flex-direction: column;
+    }
+
+    .main-content {
+        display: none;
+    }
+
+    .main-content.active {
+        display: block;
+        height: 100vh;
+    }
+}       
