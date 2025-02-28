@@ -1,10 +1,17 @@
-import { useState, forwardRef, useImperativeHandle } from 'react'
+import { useState, forwardRef, useImperativeHandle, useEffect } from 'react'
 import NoteGroup from '../NoteGroup/NoteGroup'
 import './Sidebar.css'
 
 const Sidebar = forwardRef(({ onSelectGroup }, ref) => { 
   const [selectedGroup, setSelectedGroup] = useState(null)
-  const [noteGroups, setNoteGroups] = useState([])
+  const [noteGroups, setNoteGroups] = useState(() => {                    
+    const savedGroups = localStorage.getItem('noteGroups')                
+    return savedGroups ? JSON.parse(savedGroups) : []                     
+  })                                                                      
+
+  useEffect(() => {                                                       
+    localStorage.setItem('noteGroups', JSON.stringify(noteGroups))        
+  }, [noteGroups]) 
 
   const handleCreateGroup = (newGroup) => {  
     const isDuplicate = noteGroups.some(

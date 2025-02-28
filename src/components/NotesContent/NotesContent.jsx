@@ -1,9 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './NotesContent.css'
 
 const NotesContent = ({ group }) => {  
-  const [notes, setNotes] = useState([])
-  const [newNote, setNewNote] = useState('')
+    const [notes, setNotes] = useState(() => {                           
+        const savedNotes = localStorage.getItem(`notes_${group.id}`)         
+        return savedNotes ? JSON.parse(savedNotes) : []                      
+      })                                                                     
+      const [newNote, setNewNote] = useState('')
+    
+      useEffect(() => {                                                      
+        localStorage.setItem(`notes_${group.id}`, JSON.stringify(notes))     
+      }, [notes, group.id])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -28,7 +35,7 @@ const NotesContent = ({ group }) => {
   }
 
    const handleKeyPress = (e) => { 
-    if (e.key === 'Enter' && !e.shiftKey) {  
+    if (e.key === 'Enter' && !e.shiftKey && newNote.trim()) {   
       e.preventDefault()  
       handleSubmit(e)  
     }  
@@ -56,9 +63,12 @@ const NotesContent = ({ group }) => {
         <textarea
           value={newNote}
           onChange={(e) => setNewNote(e.target.value)}
-          placeholder="Here's the sample text for sample work"
+          placeholder="Enter your text here..."
         />
-        <button type="submit">
+        <button type="submit"
+        disabled={!newNote.trim()}          
+        className={!newNote.trim() ? 'disabled' : ''}
+        >
           <span className="send-icon">➤</span>
         </button>
       </form>

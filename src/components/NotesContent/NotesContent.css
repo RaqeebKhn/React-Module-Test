@@ -75,9 +75,19 @@
     font-size: 24px;
     padding: 10px;
     display: flex;
-    align-items: center;
+    align-items: end;
   }
   
   .send-icon {
-    transform: rotate(90deg);
+    transform: rotate(3600deg);
+  }
+
+  .notes-input button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .notes-input button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
