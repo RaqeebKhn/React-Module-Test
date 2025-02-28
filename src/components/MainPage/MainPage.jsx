@@ -4,7 +4,7 @@ const MainPage = () => {
   return (
     <div className="main-page">
       <div className="content-container">
-      <img src="/src/assets/Images/image-removebg-preview 1.png" alt="Pocket Notes Illustration" className="main-illustration" />
+      <img src="/image-removebg-preview 1.png" alt="Pocket Notes Illustration" className="main-illustration" />
         <h1 className="title">Pocket Notes</h1>
         <p className="description">
           Send and receive messages without keeping your phone online.
